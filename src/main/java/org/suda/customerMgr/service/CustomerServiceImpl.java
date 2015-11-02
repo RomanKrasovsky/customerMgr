@@ -31,6 +31,17 @@ public class CustomerServiceImpl implements CustomerService {
         customerDAO.removeCustomer(id);
     }
 
+    @Transactional
+    public void editCustomer(Customer customer) {
+        customerDAO.editCustomer(customer);
+    }
+
+
+    @Transactional
+    public List<Customer> editCustomerforObject(Integer id) {
+        return customerDAO.editCustomerforObject(id);
+    }
+
     public CustomerDAO getCustomerDAO() {
         return customerDAO;
     }

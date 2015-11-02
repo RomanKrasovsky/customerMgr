@@ -12,4 +12,8 @@ public interface CustomerDAO {
     public List<Customer> listCustomer();
 
     public void removeCustomer(Integer id);
+
+    public void  editCustomer(Customer customer);
+
+    public  List<Customer> editCustomerforObject(Integer id);
 }

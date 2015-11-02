@@ -11,4 +11,11 @@ public interface CustomerService {
     public List<Customer> listCustomer();
 
     public void removeCustomer(Integer id);
+
+    public void editCustomer(Customer id);
+
+    public  List<Customer> editCustomerforObject(Integer id);
+
+
+
 }

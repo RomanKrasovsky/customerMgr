@@ -15,8 +15,8 @@
 <body>
 
 <a href="/" class="btn btn-link">Back</a>
+<h2>Smt Manager</h2>
 
-<h2>Customer Manager</h2>
 <form:form method="post" action="add" commandName="customer" class="form-horizontal">
     <fieldset>
         <legend>Customer Details</legend>
@@ -59,10 +59,11 @@
             <form:errors path="telephone" cssClass="error"/>
         </div>
     </fieldset>
+
     <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
-            <button type="submit" class="btn btn-primary"><spring:message code="label.addcustomer"/></button>
-        </div>
+            <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-primary"><spring:message code="label.addcustomer"/></button>
+            </div>
     </div>
 </form:form>
 

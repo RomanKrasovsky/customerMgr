@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.suda.customerMgr.domain.Customer;
 import org.suda.customerMgr.scala.HelloScala;
 import org.suda.customerMgr.service.api.CustomerService;
-
 import javax.validation.Valid;
 import java.util.Map;
 
@@ -25,7 +24,6 @@ public class CustomerController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String loadAddCustomer(Map<String, Object> map) {
         map.put("customer", new Customer());
-        HELLO.get();
         return "customer";
     }
 
@@ -37,22 +35,40 @@ public class CustomerController {
         return "listCustomers";
     }
 
+    @RequestMapping("/modal")
+    public String listCustomer2(Map<String, Object> map) {
+        return "modal";
+    }
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addCustomer(@ModelAttribute("customer") @Valid Customer customer, BindingResult result) {
         if (result.hasErrors()) {
             return "customer";
         }
         customerService.addCustomer(customer);
-        return "redirect:/add";
+        return "customer";
     }
 
-    @RequestMapping("/delete/{customerId}")
+    @RequestMapping(value = "/edit/edit{customerId}", method = RequestMethod.POST)
+    public String edit(@ModelAttribute("customer") @Valid Customer customer, BindingResult result)  {
+        if (result.hasErrors()) {
+            return "listCustomers";
+        }
+        customerService.editCustomer(customer);
+        return "redirect:/list";
+    }
+
+   @RequestMapping(value = "/edit/{customerId}")
+    public String editCustomer( Map<String, Object> map, @PathVariable("customerId") Integer customerId ) {
+       map.put("customer", new Customer());
+       map.put("List", customerService.editCustomerforObject(customerId));
+
+        return "edit";
+    }
+
+    @RequestMapping(value = "/delete/{customerId}")
     public String deleteCustomer(@PathVariable("customerId") Integer customerId) {
         customerService.removeCustomer(customerId);
         return "redirect:/list";
     }
-
-
-
-
 }
