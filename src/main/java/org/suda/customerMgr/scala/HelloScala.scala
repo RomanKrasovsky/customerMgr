@@ -13,14 +13,10 @@ object HelloScala {
                 fruits += "Banana"
                 fruits += "Orange"
                 for (i<-fruits) println(i)
-
-
         }
         for (i <- 0 to 10) {
                 println("iteration" + i)
 
         }
-
         def get() =  println("it is shit is working")
-
 }

@@ -17,7 +17,7 @@ import java.util.List;
 public class CustomerDAOImpl implements CustomerDAO {
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerDAOImpl.class);
     @Autowired
-    private SessionFactory sessionFactory;
+    public SessionFactory sessionFactory;
     public boolean addCustomer(Customer customer) {
         LOGGER.info("Adding customer: " + customer);
         try {

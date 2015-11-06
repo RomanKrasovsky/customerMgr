@@ -49,12 +49,9 @@
             </props>
         </property>
     </bean>
-
     <tx:annotation-driven/>
-
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate3.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
 </beans>

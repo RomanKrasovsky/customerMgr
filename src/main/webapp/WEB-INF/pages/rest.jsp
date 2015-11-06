@@ -22,8 +22,8 @@
         <h4 class="modal-title">Confirmation</h4>
       </div>
       <div class="modal-body">
-        <p> test </p>
-        <p class="text-warning"><small>test</small></p>
+        <p>you rest is  ${message}</p>
+        <p class="text-warning"><small>test rest is ${message}</small></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
